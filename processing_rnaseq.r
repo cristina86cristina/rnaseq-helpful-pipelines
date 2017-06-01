@@ -47,6 +47,9 @@ detach("package:biomaRt", unload=TRUE) #unload biomart because it creates proble
 gb_coding<-subset(gb, gb$gene_biotype=="protein_coding")
 genes<-gb_coding$ensembl_gene_id
 counts<-as.data.frame(tx.kallisto$counts[row.names(tx.kallisto$counts) %in% genes, ])
+tpm <- as.data.frame(tx.kallisto$abundance[row.names(tx.kallisto$abundance) %in% genes, ])
+len <- as.data.frame(tx.kallisto$len[row.names(tx.kallisto$len) %in% genes, ])
+
 
 
 
@@ -61,6 +64,20 @@ counts_divided<-sweep(counts, 2, total_counts, `/`)
 cpm<-counts_divided*1000000
 write.csv(total_counts,"total_counts_mapped.csv")
 
+#let's check gene expression - gene size relationship 
 
-lapply(names(cpm), function(x) write.table(cpm[[x]],paste(x,".txt",sep=""),row.names=ids,quote=F,col.names=F,sep="\t"))
+cpm[cpm <= 0.001] <- 0.001
+
+corre <- 0
+for (i in 1:length(cpm)){
+  corre[i]<-cor(log2(cpm[i]),log2(len[i]))
+  print(corre[i])
+}
+
+corre_df<-data.frame(sample_id=names(cpm),cor_value=corre)
+write.csv(corre_df,"correlation_matrix.csv")
+
+
+lapply(names(tpm), function(x) write.table(tpm[[x]],paste(x,"tpm.txt",sep=""),row.names=ids,quote=F,col.names=F,sep="\t"))
+
 
