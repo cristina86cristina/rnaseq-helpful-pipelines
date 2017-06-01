@@ -1,6 +1,8 @@
 # rnaseq-helpful-pipelines
 
 This is the pipeline I am using for RNAseq analysis for human samples. Mapping is done with Kallisto. 
+
+processing_rnaseq.r 
 The following scripts will help with:
 - summarise results at the gene level
 - calculate cpm (old)
@@ -9,8 +11,9 @@ The following scripts will help with:
 - extract tpm 
 - write a file/sample with tpm info
 - write a file/sample with a few other metrics 
+Inside the folder with kallisto results, from the terminal: R CMD BATCH processing_rnaseq.r
 
-Second script is for the QC - this is more interactive, people can change as needed (and use samples needed for the analysis)
+Second script is for the QC - this is more interactive(R notebook), people can change as needed (and use samples needed for the analysis)
 - transform tpm <= 0.001 
 - log2 tpm
 - density plot 
