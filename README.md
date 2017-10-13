@@ -21,4 +21,4 @@ Inside the folder with kallisto results, from the terminal: R CMD BATCH processi
 ##annotation.r
 
 
-This script is to annotate several files where the Id are Ensebl genes and we want gene names, biotype and gene description. Initially written for SARTools output. 
+This script is to annotate several files where the Id are Ensebl genes and we want gene names, biotype and gene description. Initially written for SARTools output. Use biomart and can be used for different species. 
