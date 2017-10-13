@@ -18,3 +18,7 @@ Second script is for the QC - this is more interactive(R notebook), people can c
 - log2 tpm
 - density plot 
 - pca plots
+
+
+annotation.r
+This script is to annotate several files where the Id are Ensebl genes and we want gene names, biotype and gene description. Initially written for SARTools output. 
