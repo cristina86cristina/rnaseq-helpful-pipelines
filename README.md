@@ -11,6 +11,9 @@ The following scripts will help with:
 - extract tpm 
 - write a file/sample with tpm info
 - write a file/sample with a few other metrics 
+
+
+
 Inside the folder with kallisto results, from the terminal: R CMD BATCH processing_rnaseq.r
 
 
