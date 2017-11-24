@@ -1,7 +1,7 @@
 #First part RNAseq 
 #- read kallisto output
 #- gene level data 
-#- calculate cpm
+#- calculate cpm (old) - we are now extracting tpm
 #- write files for each sample
 #- summary of read counts
 
