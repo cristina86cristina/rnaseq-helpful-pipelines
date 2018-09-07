@@ -1,6 +1,6 @@
 # rnaseq-helpful-pipelines
 
-This is the pipeline I am using for RNAseq analysis for human samples. Mapping is done with Kallisto. 
+This is the pipeline I am using for RNAseq analysis for human samples. Mapping is done with Kallisto with default parameters. 
 
 ##processing_rnaseq.r 
 The following scripts will help with:
